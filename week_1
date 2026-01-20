@@ -1,0 +1,135 @@
+Question 121- Buy and sell problem
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+class Solution {
+    public int maxProfit(int[] prices) {
+        int minprice = Integer.MAX_VALUE;
+        int maxprofit=0;
+        for(int i=0;i<prices.length;i++){
+            minprice = Math.min(minprice,prices[i]);
+            int profit = prices[i]-minprice;
+            maxprofit = Math.max(maxprofit,profit);
+        }
+        return maxprofit;
+    }
+}
+
+Question 28 -  Find the Index of the First Occurrence in a String.
+https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+class Solution {
+    public int strStr(String haystack, String needle) {
+        // if(haystack.length()<needle.length()){
+        //     return -1;
+        // }
+        for(int i=0;i<=haystack.length()-needle.length();i++){
+            int j =0;
+            while(needle.length()>j && haystack.charAt(i+j)==needle.charAt(j)){
+                j++;
+            }
+            if(j==needle.length()){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+Question 15 -  3Sum
+https://leetcode.com/problems/3sum/description/
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        if(nums==null || nums.length<3){
+            return new ArrayList<>();
+        }
+        Arrays.sort(nums);
+        Set<List<Integer>> result = new HashSet<>();
+        for(int i=0;i<nums.length-2;i++){
+            int left =i+1;
+            int right = nums.length-1;
+            while(left<right){
+                int sum = nums[i]+nums[left]+nums[right];
+                if(sum==0){
+                    result.add(Arrays.asList(nums[i],nums[left],nums[right]));
+                    left++;
+                    right--;
+                }
+                else if(sum<0){
+                    left++;
+                }
+                else{
+                    right--;
+                }
+            }
+        }
+        return new ArrayList<>(result);
+    }
+}
+
+
+Question 204 - Count Primes
+https://leetcode.com/problems/count-primes/description/
+class Solution {
+    public int countPrimes(int n) {
+        int prime[] = new int[n];
+        for(int i=2;i<n;i++){
+            prime[i] = 1;
+        }
+        for(int i=2;i*i<=n;i++){
+            if(prime[i]==1){
+                for(int j=i*i;j<n;j+=i){
+                    prime[j]=0;
+                }
+            }
+        }
+        int count =0;
+        for(int i=2;i<n;i++){
+            if(prime[i]==1){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+Question 41- First Missing Positive
+https://leetcode.com/problems/first-missing-positive/description/
+class Solution {
+    public int firstMissingPositive(int[] nums) {
+        Arrays.sort(nums);
+        int ans =1;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==ans){
+                ans++;
+            }
+        }
+        return ans;
+    }
+}
+
+Question 4- Median of Two Sorted Arrays
+https://leetcode.com/problems/median-of-two-sorted-arrays/description/
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int m = nums2.length;
+        double ans = 0;
+        int add = n+m;
+        if(n+m==1){
+            if(n==0){
+                ans = nums2[0];
+            }
+            else{
+                ans = nums1[0];
+            }
+            return ans;
+        }
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        if(add%2!=0){
+            ans = Math.min(nums1[n-1],nums2[m-1]);
+        }
+        else{
+            ans = (double)(nums1[n-1]+nums2[m-2])/2;
+        }
+        return ans;
+    }
+}
