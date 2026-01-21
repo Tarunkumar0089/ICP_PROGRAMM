@@ -1,5 +1,5 @@
 Question 121- Buy and sell problem
-https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/submissions/1581295030
 class Solution {
     public int maxProfit(int[] prices) {
         int minprice = Integer.MAX_VALUE;
@@ -14,7 +14,7 @@ class Solution {
 }
 
 Question 28 -  Find the Index of the First Occurrence in a String.
-https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/submissions/1883660978
 class Solution {
     public int strStr(String haystack, String needle) {
         // if(haystack.length()<needle.length()){
@@ -34,7 +34,7 @@ class Solution {
 }
 
 Question 15 -  3Sum
-https://leetcode.com/problems/3sum/description/
+https://leetcode.com/problems/3sum/submissions/1883733566
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         if(nums==null || nums.length<3){
@@ -66,7 +66,7 @@ class Solution {
 
 
 Question 204 - Count Primes
-https://leetcode.com/problems/count-primes/description/
+https://leetcode.com/problems/count-primes/submissions/1883731782
 class Solution {
     public int countPrimes(int n) {
         int prime[] = new int[n];
@@ -91,7 +91,7 @@ class Solution {
 }
 
 Question 41- First Missing Positive
-https://leetcode.com/problems/first-missing-positive/description/
+hhttps://leetcode.com/problems/first-missing-positive/submissions/1884699580
 class Solution {
     public int firstMissingPositive(int[] nums) {
         Arrays.sort(nums);
@@ -106,7 +106,7 @@ class Solution {
 }
 
 Question 4- Median of Two Sorted Arrays
-https://leetcode.com/problems/median-of-two-sorted-arrays/description/
+https://leetcode.com/problems/median-of-two-sorted-arrays/submissions/1884572923
 class Solution {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int n = nums1.length;
