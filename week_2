@@ -1,5 +1,5 @@
 Question 2696. Minimum String Length After Removing Substrings
-https://leetcode.com/problems/minimum-string-length-after-removing-substrings/description/
+https://leetcode.com/problems/minimum-string-length-after-removing-substrings/submissions/1889524676
 class Solution {
     public int minLength(String s) {
         Stack<Character> st = new Stack<>();
@@ -23,7 +23,7 @@ class Solution {
 }
 
 Question 1544. Make The String Great.
-https://leetcode.com/problems/make-the-string-great/description/
+https://leetcode.com/problems/make-the-string-great/submissions/1889536903
 class Solution {
     public String makeGood(String s) {
         Stack<Character> st = new Stack<>();
@@ -52,7 +52,7 @@ class Solution {
 
 
 Question 907. Sum of Subarray Minimums
-https://leetcode.com/problems/sum-of-subarray-minimums/description/
+https://leetcode.com/problems/sum-of-subarray-minimums/submissions/1889595991
 class Solution {
     public int sumSubarrayMins(int[] arr) {
         int n=arr.length;
@@ -91,7 +91,7 @@ class Solution {
 }
 
 Question 1856. Maximum Subarray Min-Product
-https://leetcode.com/problems/maximum-subarray-min-product/description/
+https://leetcode.com/problems/maximum-subarray-min-product/submissions/1890704994
 class Solution {
     public int maxSumMinProduct(int[] nums) {
         Stack<int[]>st1=new Stack<>();
@@ -127,5 +127,18 @@ class Solution {
          max=Math.max(max,(long)nums[i]*(r-l));
         }
         return (int)(max%mod);
+    }
+}
+1526. Minimum Number of Increments on Subarrays to Form a Target Array
+https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/submissions/1891756410
+class Solution {
+    public int minNumberOperations(int[] target) {
+        int ans=target[0];
+        for(int i=1;i<target.length;i++){
+             if(target[i]>target[i-1]){
+                ans+=target[i]-target[i-1];
+             }
+        }
+        return ans;
     }
 }
