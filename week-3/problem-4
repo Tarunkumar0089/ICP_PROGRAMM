@@ -1,0 +1,21 @@
+950. Reveal Cards In Increasing Order
+https://leetcode.com/problems/reveal-cards-in-increasing-order/submissions/1900577368
+
+class Solution {
+    public int[] deckRevealedIncreasing(int[] deck) {
+        int[] ans=new int[deck.length];
+        Arrays.sort(deck);
+        Queue<Integer>q=new LinkedList<>();
+        for(int i=deck.length-1;i>0;i--){
+            q.add(deck[i]);
+            q.add(q.poll());
+
+        }
+        q.add(deck[0]);
+        int idx=deck.length-1;
+        while(!q.isEmpty()){
+            ans[idx--]=q.poll();
+        }
+        return ans;
+    }
+}
