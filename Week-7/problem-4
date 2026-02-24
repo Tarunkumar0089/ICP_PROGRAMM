@@ -1,0 +1,40 @@
+Sum of Query II
+
+// User function Template for Java
+
+class Solution {
+    static int st[];
+    List<Integer> querySum(int n, int arr[], int q, int queries[]) {
+        // code here
+        List<Integer>list=new ArrayList<>();
+        st=new int[4*n];
+        build(arr,0,0,n-1);
+        int index=0;
+         for (int i = 0; i < q; i +=1) {
+            int l = queries[index++]-1;
+            int r = queries[index++]-1;
+            int ans=query(0, 0, n - 1, l, r);
+            list.add(ans);
+        }
+        return list;
+
+        
+    }
+    public static void build(int arr[],int i,int l,int r){
+         if(l==r) {
+              st[i]=arr[l];
+              return;
+         }
+         int mid=(l+r)/2;
+         build(arr,2*i+1,l,mid);
+         build(arr,2*i+2,mid+1,r);
+         st[i]=st[2*i+1]+st[2*i+2];
+    }
+    public int query(int i, int s,int e,int l ,int r ){
+          if (l <= s && e <= r)  return st[i];
+          if(e<l || s>r) return 0;
+          int mid=(s+e)/2;
+          return query(2*i+1,s,mid,l,r)+query(2*i+2,mid+1,e,l,r);
+    }
+    
+}
